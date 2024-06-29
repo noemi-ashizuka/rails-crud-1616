@@ -1,0 +1,24 @@
+<p class="fw-lighter opacity-75">
+  <i class="fas fa-map-pin"></i><span class='ms-2'><%= @restaurant.address %></span>
+</p>
+<p class="fw-lighter opacity-75">
+  <% rand(2..5).times do %>
+    <i class="fas fa-dollar-sign"></i>
+  <% end %>
+</p>
+<p class="fw-lighter opacity-75">
+  <i class="fas fa-utensils"></i><span class='ms-2'><%= @restaurant.category %></span>
+</p>
+
+<div class="d-flex">
+  <!-- edit and delete here-->
+  <%= link_to edit_restaurant_path(@restaurant), class: "text-warning me-2" do %>
+    <i class="fa-solid fa-pencil"></i>
+  <% end %>
+
+  <%= link_to restaurant_path(@restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+   class: "text-danger" do %>
+    <i class="fa-solid fa-trash"></i>
+  <% end %>
+
+</div>
